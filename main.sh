@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 usage() {
 cat << EOF
@@ -184,7 +184,6 @@ if [[ X$SUB_CMD = "Xpublish" ]]; then
         if [[ ${#PASSTHRU[@]} < 3 ]]; then
             log_debug Not specified any chart package file.
             for DEFAULT_CHART_PACK in $(ls ./charts/*.tgz); do
-                echo $DEFAULT_CHART_PACK
                 CHART_PKGS+=("$DEFAULT_CHART_PACK")
             done
         else
