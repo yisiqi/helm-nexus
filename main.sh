@@ -29,6 +29,13 @@ Use "helm nexus [command] --help" for more information about a command.
 EOF
 }
 
+
+if [[ -z "$NEXUS_API_VER" ]]; then
+    CI_UPLOAD_API_VER=v1
+else
+    CI_UPLOAD_API_VER=$NEXUS_API_VER
+fi
+
 log_debug() {
     if [[ $DEBUG = TRUE ]]; then
         echo [DEBUG] $@
@@ -200,7 +207,7 @@ if [[ X$SUB_CMD = "Xpublish" ]]; then
             # echo $CHART_PACK_FILE
             # echo $(dirname $CHART_PACK_FILE)
             CI_REPO_URL=$(get_repo_info $REPO_NAME url)
-            CI_UPLOAD_URL=https://repos.iec.io/service/rest/beta/components?repository=$(basename $CI_REPO_URL)
+            CI_UPLOAD_URL=https://repos.iec.io/service/rest/$CI_UPLOAD_API_VER/components?repository=$(basename $CI_REPO_URL)
             CI_CHARTS_REPO_USERNAME=$(get_repo_info $REPO_NAME username)
             CI_CHARTS_REPO_PASSWORD=$(get_repo_info $REPO_NAME password)
             if [[ X$CI_CHARTS_REPO_USERNAME = "X" && X$CI_CHARTS_REPO_PASSWORD = "X" ]]; then
