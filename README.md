@@ -4,7 +4,7 @@ A helm plugin to use Sonatype Nexus OSS as your private charts repository.
 
 ## Install
 
-Based on the version in `plugin.yaml`, corresponding release binary will be downloaded from GitHub:
+Based on the version specified in `plugin.yaml`, corresponding release binary will be downloaded from GitHub with command:
 
 ```
 $ helm plugin install https://github.com/yisiqi/helm-nexus.git
