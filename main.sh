@@ -83,7 +83,7 @@ do_upload() {
         echo "   -F raw.asset1.filename=$CI_CURL_UPLOAD_FILE_NAME"
     fi
 
-    if [[ ! -z "$DRY_RUN" ]]; then
+    if [[ -z "$DRY_RUN" ]]; then
         curl -sSf -X POST $CI_CURL_UPLOAD_URL $CI_CURL_UPLOAD_AUTH -F raw.directory=/ -F raw.asset1=@$CI_CURL_UPLOAD_FILE_PATH -F raw.asset1.filename=$CI_CURL_UPLOAD_FILE_NAME
     fi
 }
