@@ -1,0 +1,8 @@
+name: "nexus"
+version: "0.1.0"
+usage: |-
+  publish charts to your private repository which hosted with Sonatype Nexus
+                see https://github.com/yisiqi/helm-nexus
+description: |-
+  This plugin publish charts to your private repository which hosted with Sonatype Nexus.
+command: "$HELM_PLUGIN_DIR/main.sh"
