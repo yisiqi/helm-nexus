@@ -223,7 +223,7 @@ if [[ X$SUB_CMD = "Xpublish" ]]; then
             fi
 
             # Reindex
-            rm $(dirname $CHART_PACK_FILE)/index.yaml
+            rm -f $(dirname $CHART_PACK_FILE)/index.yaml || true
             helm repo index --merge ~/.helm/repository/cache/$REPO_NAME-index.yaml --url $CI_REPO_URL $(dirname $CHART_PACK_FILE)
             # Upload
             do_upload $CI_UPLOAD_URL "$CI_UPLOAD_AUTH" $CHART_PACK_FILE $(basename $CHART_PACK_FILE)
