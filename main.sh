@@ -199,7 +199,14 @@ if [[ X$SUB_CMD = "Xpublish" ]]; then
         exit 1
     fi
 
-    echo CHARTS: ${CHART_PKGS[@]} \(total: ${#CHART_PKGS[@]}\), REPO: $REPO_NAME
+    echo
+    echo Preparing to publish charts:
+    for HN_PUB_EACH_CHART in ${CHART_PKGS[@]}; do
+        echo "  - $HN_PUB_EACH_CHART"
+    done
+    echo "  (total: ${#CHART_PKGS[@]})"
+    echo to repository: $REPO_NAME
+    echo
 
     for CHART_PACK_FILE in ${CHART_PKGS[@]}; do
         if [[ -f $CHART_PACK_FILE && ${CHART_PACK_FILE: -4} == ".tgz" ]]; then
