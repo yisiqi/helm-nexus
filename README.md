@@ -1,10 +1,10 @@
 # helm nexus plugin
 
-Helm plugin to using Sonatype Nexus OSS as your private charts repository.
+A helm plugin to use Sonatype Nexus OSS as your private charts repository.
 
 ## Install
 
-Based on the version in plugin.yaml, release binary will be downloaded from GitHub:
+Based on the version in `plugin.yaml`, corresponding release binary will be downloaded from GitHub:
 
 ```
 $ helm plugin install https://github.com/yisiqi/helm-nexus.git
@@ -12,7 +12,7 @@ $ helm plugin install https://github.com/yisiqi/helm-nexus.git
 
 ## Usage
 
-Start by adding a repo via Helm CLI (if not already added)
+Start by adding a repo via Helm CLI (if not added yet)
 
 ```
 $ helm repo add --username xxxx --password xxxx charts-private https://example.com/repository/charts
@@ -26,13 +26,13 @@ $ helm nexus --help
 
 ### Package your charts
 
-Here is an example packaging the chart files under `./charts/`. This will try to package every valid charts directory under default path with the `helm package` command.
+You can run `helm package` command to package chart files. Every valid charts directory will be packaged under a certain path (`./charts/` would be the default path if no path specified).
 
 ```
 $ helm nexus package
 ```
 
-Also you can specified your own path, or use `helm package` command directly.
+Also, you can specify your own path.
 
 
 ```
@@ -41,13 +41,13 @@ $ helm nexus package ./my-charts/
 
 ### Publish charts
 
-This command will meger index, then upload the archived package and the new index file. The `./charts/` directory will be searched by default.
+This command will merge index, then upload the archived package and the new index file. The `./charts/` directory will be searched by default.
 
 ```
 $ helm nexus publish my-charts-repo-name
 ```
 
-Also you can specified your own path
+Also you can specify your own path
 
 ```
 $ helm nexus publish ./my-charts my-charts-repo-name
