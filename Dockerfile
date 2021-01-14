@@ -19,7 +19,7 @@ RUN wget https://storage.googleapis.com/kubernetes-release/release/$KUBE_VER/bin
   && apk add --update --no-cache curl git bash \
   && helm init --client-only --skip-refresh
 
-ADD bin /root/.helm/plugins/helm-nexus.git
+ADD bin /root/.helm/plugins/helm-nexus.git/bin
 ADD main.sh /root/.helm/plugins/helm-nexus.git
 ADD plugin.yaml /root/.helm/plugins/helm-nexus.git
 ADD LICENSE /root/.helm/plugins/helm-nexus.git
