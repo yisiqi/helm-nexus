@@ -20,8 +20,3 @@ RUN wget https://storage.googleapis.com/kubernetes-release/release/$KUBE_VER/bin
   # && helm init --client-only --skip-refresh \
   && helm plugin install --version master https://github.com/yisiqi/helm-nexus-push.git \
   && helm plugin install --version master https://github.com/yisiqi/helm-nexus.git
-
-ADD bin /root/.helm/plugins/helm-nexus.git/bin
-ADD main.sh /root/.helm/plugins/helm-nexus.git
-ADD plugin.yaml /root/.helm/plugins/helm-nexus.git
-ADD LICENSE /root/.helm/plugins/helm-nexus.git
