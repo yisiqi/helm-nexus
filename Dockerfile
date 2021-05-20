@@ -2,9 +2,9 @@ FROM alpine
 
 LABEL maintainer="Yi Siqi <yisiqi@inspur.com>"
 
-ARG KUBE_VER=v1.15.1
+ARG KUBE_VER=v1.21.1
 ARG KUBE_ARC=amd64
-ARG HELM_VER=v2.9.1
+ARG HELM_VER=v3.5.4
 ARG HELM_ARC=amd64
 
 RUN wget https://storage.googleapis.com/kubernetes-release/release/$KUBE_VER/bin/linux/$KUBE_ARC/kubectl -P /usr/local/bin \
