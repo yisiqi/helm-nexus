@@ -17,7 +17,7 @@ RUN wget https://storage.googleapis.com/kubernetes-release/release/$KUBE_VER/bin
   && cd - \
   && rm -rf /tmp/* \
   && apk add --update --no-cache curl git bash \
-  && helm init --client-only --skip-refresh \
+  # && helm init --client-only --skip-refresh \
   && helm plugin install --version master https://github.com/sonatype-nexus-community/helm-nexus-push.git \
   && sed -i 's/set -ueo pipefail/set -eo pipefail/g' /root/.helm/plugins/helm-nexus-push.git/push.sh
 
